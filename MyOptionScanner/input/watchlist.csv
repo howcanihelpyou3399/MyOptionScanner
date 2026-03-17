@@ -1,0 +1,6 @@
+symbol,name,strategy,min_iv_rank
+AAPL,Apple,covered_call,50
+TSLA,Tesla,cash_secured_put,60
+NVDA,Nvidia,covered_call,55
+SPY,S&P500 ETF,covered_call,40
+QQQ,Nasdaq ETF,cash_secured_put,40

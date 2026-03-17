@@ -1,0 +1,21 @@
+{
+  "telegram": {
+    "token": "YOUR_BOT_TOKEN_HERE",
+    "chat_id": "YOUR_CHAT_ID_HERE"
+  },
+  "scan": {
+    "iv_rank_threshold": 50,
+    "scan_day": "Monday",
+    "scan_time": "09:00",
+    "timezone": "America/New_York"
+  },
+  "data": {
+    "iv_lookback_days": 252,
+    "data_source": "yfinance"
+  },
+  "output": {
+    "save_json": true,
+    "save_log": true,
+    "log_level": "INFO"
+  }
+}
