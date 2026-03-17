@@ -20,7 +20,7 @@ TELEGRAM_TOKEN   = os.environ.get("TELEGRAM_TOKEN", "")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 
 # Paths (relative, for GitHub Actions)
-WATCHLIST_PATH = "input/watchlist.csv"
+WATCHLIST_PATH = "MyOptionScanner/input/watchlist.csv"
 OUTPUT_DIR     = "output"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
