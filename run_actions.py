@@ -30,7 +30,7 @@ def send_message(text):
         logger.error('Telegram ERROR: ' + str(e))
         return False
 
-def calculate_iv_rank(symbol):
+def calculate_iv_percentile(symbol):
     logger.info('Fetching: ' + symbol)
     try:
         ticker = yf.Ticker(symbol)
@@ -38,23 +38,21 @@ def calculate_iv_rank(symbol):
         if hist.empty:
             return None, 'No price data'
         closes = hist['Close'].values
-        if len(closes) < 20:
+        if len(closes) < 22:
             return None, 'Not enough data'
         returns = np.diff(np.log(closes))
-        vols = []
-        for i in range(20, len(returns)):
-            v = np.std(returns[i-20:i]) * np.sqrt(252) * 100
+        window  = 20
+        vols    = []
+        for i in range(window, len(returns)):
+            v = np.std(returns[i-window:i]) * np.sqrt(252) * 100
             vols.append(v)
         if len(vols) < 2:
             return None, 'Not enough vol data'
         current_vol = vols[-1]
-        vol_min = min(vols)
-        vol_max = max(vols)
-        if vol_max == vol_min:
-            return 50.0, None
-        iv_rank = (current_vol - vol_min) / (vol_max - vol_min) * 100
-        logger.info(symbol + ' vol=' + str(round(current_vol,1)) + '% iv_rank=' + str(round(iv_rank,1)))
-        return round(iv_rank, 1), None
+        count_below = sum(1 for v in vols[:-1] if v < current_vol)
+        iv_pct = round(count_below / len(vols[:-1]) * 100, 1)
+        logger.info(symbol + ' vol=' + str(round(current_vol,1)) + '% iv_pct=' + str(iv_pct))
+        return iv_pct, None
     except Exception as e:
         return None, str(e)
 
@@ -68,7 +66,7 @@ def format_report(results, scan_date):
         lines.append('OK - Act now:')
         for r in qualified:
             s = 'CC' if r['strategy'] == 'covered_call' else 'CSP'
-            lines.append('  ' + r['symbol'] + ' IV:' + str(round(r['iv_rank'])) + ' ' + s + ' $' + str(round(r['current_price'],2)))
+            lines.append('  ' + r['symbol'] + ' IVP:' + str(r['iv_percentile']) + '% ' + s + ' $' + str(round(r['current_price'],2)))
     else:
         lines.append('OK - Act now: none today')
     lines.append('')
@@ -78,7 +76,7 @@ def format_report(results, scan_date):
             if r.get('error'):
                 lines.append('  ' + r['symbol'] + ' ERROR: ' + r['error'])
             else:
-                lines.append('  ' + r['symbol'] + ' IV:' + str(round(r['iv_rank'])) + ' (need:' + str(r['min_iv_rank']) + ')')
+                lines.append('  ' + r['symbol'] + ' IVP:' + str(r['iv_percentile']) + '% (need:' + str(r['min_iv_rank']) + '%)')
     lines.append('')
     lines.append('Scan: ' + scan_date)
     lines.append('')
@@ -102,7 +100,7 @@ def main():
     for _, row in df.iterrows():
         symbol    = row['symbol']
         threshold = int(row['min_iv_rank']) if pd.notna(row['min_iv_rank']) else 50
-        iv_rank, error = calculate_iv_rank(symbol)
+        iv_pct, error = calculate_iv_percentile(symbol)
         ticker = yf.Ticker(symbol)
         hist   = ticker.history(period='5d')
         price  = float(hist['Close'].iloc[-1]) if not hist.empty else 0.0
@@ -110,10 +108,10 @@ def main():
             'symbol':        str(symbol),
             'name':          str(row['name']),
             'strategy':      str(row['strategy']),
-            'iv_rank':       float(iv_rank) if iv_rank is not None else 0.0,
+            'iv_percentile': float(iv_pct) if iv_pct is not None else 0.0,
             'min_iv_rank':   int(threshold),
             'current_price': float(round(price, 2)),
-            'qualified':     int(1 if (iv_rank is not None and iv_rank >= threshold) else 0),
+            'qualified':     int(1 if (iv_pct is not None and iv_pct >= threshold) else 0),
             'error':         str(error) if error else ''
         })
     output_path = OUTPUT_DIR + '/' + today + '.json'
