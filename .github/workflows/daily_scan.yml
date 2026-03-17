@@ -2,7 +2,7 @@ name: Daily Option Scanner
 
 on:
   schedule:
-    - cron: '0 19 * * 1-5'
+    - cron: '38 20 * * 1-5'
   workflow_dispatch:
 
 jobs:
