@@ -1,6 +1,6 @@
 symbol,name,strategy,min_iv_rank
-BITO,Crypto,covered_call,80
-TSLL,Tesla,cash_secured_put,50
-NVDL,Nvidia,covered_call,40
-PLTR,Plantair,covered_call,20
-MSFU,Microsoft,cash_secured_put,55
+BITO,Crypto,covered_call,75
+TSLL,Tesla,cash_secured_put,55
+NVDL,Nvidia,covered_call,50
+PLTR,Plantair,covered_call,50
+MSFU,Microsoft,cash_secured_put,50
