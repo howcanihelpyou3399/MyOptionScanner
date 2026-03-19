@@ -1,6 +1,6 @@
-symbol,name,strategy,min_iv_rank
-BITO,Crypto,covered_call,75
-TSLL,Tesla,cash_secured_put,55
-NVDL,Nvidia,covered_call,50
-PLTR,Plantair,covered_call,50
-MSFU,Microsoft,cash_secured_put,50
+symbol,name,strategy,min_iv_rank,target_delta,delta_range
+AAPL,Apple,covered_call,50,0.20,0.05
+TSLA,Tesla,cash_secured_put,60,0.10,0.05
+NVDA,Nvidia,covered_call,55,0.20,0.05
+SPY,S&P500 ETF,covered_call,40,0.15,0.05
+QQQ,Nasdaq ETF,cash_secured_put,40,0.15,0.05
