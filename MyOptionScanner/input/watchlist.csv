@@ -1,6 +1,7 @@
 symbol,name,strategy,min_iv_rank,target_delta,delta_range
-AAPL,Apple,covered_call,50,0.20,0.05
-TSLA,Tesla,cash_secured_put,60,0.10,0.05
-NVDA,Nvidia,covered_call,55,0.15,0.05
-SPY,S&P500 ETF,covered_call,40,0.15,0.05
-QQQ,Nasdaq ETF,cash_secured_put,40,0.15,0.05
+MSFU,Microsoft,covered_call,60,0.20,0.05
+TSLL,Tesla,covered_call,70,0.08,0.05
+NVDL,Nvidia,covered_call,65,0.13,0.05
+BITO,Crypto ETF,covered_call,80,0.1,0.05
+PTIR, Plantir,covered_call,75,0.1,0.05
+QQQ,Nasdaq ETF,cash_secured_put,50,0.15,0.05
