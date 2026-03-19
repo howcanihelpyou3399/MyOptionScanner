@@ -1,7 +1,13 @@
 symbol,name,strategy,min_iv_rank,target_delta,delta_range
-MSFU,Microsoft,covered_call,60,0.20,0.05
+MSFU,Microsoft,covered_call,60,0.15,0.05
 TSLL,Tesla,covered_call,70,0.08,0.05
 NVDL,Nvidia,covered_call,65,0.13,0.05
 BITO,Crypto ETF,covered_call,80,0.1,0.05
-PTIR, Plantir,covered_call,75,0.1,0.05
+PTIR,Plantir,covered_call,75,0.1,0.05
+GOOG,Google,cash_secured_put,55,0.15,0.05
+MO,Cigarate,cash_secured_put,45,0.2,0.05
+MCD,McDonald,cash_secured_put,50,0.16,0.05
+GLD,Gold ETF,cash_secured_put,50,0.2,0.05
+SCHD,Dividen ETF,cash_secured_put,40,0.25,0.05
+JEPI,S&P 500 ETF,cash_secured_put,40,0.25,0.05
 QQQ,Nasdaq ETF,cash_secured_put,50,0.15,0.05
