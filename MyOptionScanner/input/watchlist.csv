@@ -2,7 +2,7 @@ symbol,name,strategy,min_iv_rank,target_delta,delta_range
 MSFU,Microsoft,covered_call,80,0.15,0.05
 ARKK,Wood ETF,covered_call,80,0.15,0.05
 METU,Facebook,covered_call,80,0.15,0.05
-BITO,Crypto ETF,covered_call,80,0.15,0.05
+NVDA,AI GPU,cash_secured_put,75,0.15,0.05
 PTIR,Plantir,covered_call,80,0.15,0.05
 GOOG,Google,cash_secured_put,75,0.15,0.05
 MO,Cigarate,cash_secured_put,60,0.2,0.05
