@@ -1,34 +1,19 @@
 symbol,name,strategy,min_iv_rank,target_delta,delta_range
-SPY, SP 500 index,covered_call,70,0.2,0.05
 SPY, SP 500 index,cash_secured_put,70,0.2,0.05
-TQQQ, Nasdaq 100 3 times,covered_call,90,0.1,0.05
 TQQQ, Nasdaq 100 3 times,cash_secured_put,90,0.1,0.05
 METU,Facebook,covered_call,90,0.2,0.05
-NVDA,AI GPU,covered_call,90,0.15,0.05
 NVDA,AI GPU,cash_secured_put,90,0.15,0.05
-ANT,AI LLM,covered_call,90,0.15,0.05
 ANT,AI LLM,cash_secured_put,90,0.15,0.05
-SPCX,Space X,covered_call,85,0.15,0.05
 SPCX,Space X,cash_secured_put,85,0.15,0.05
-GOOG,Google,covered_call,80,0.15,0.05
 GOOG,Google,cash_secured_put,80,0.15,0.05
 MO,Cigarate,cash_secured_put,70,0.2,0.05
-MO,Cigarate,covered_call,70,0.2,0.05
 MCD,McDonald,cash_secured_put,60,0.2,0.05
-MCD,McDonald,covered_call,60,0.2,0.05
 GLD,Gold ETF,cash_secured_put,70,0.15,0.05
-GLD,Gold ETF,covered_call,70,0.15,0.05
 QQQ,Nasdaq ETF,cash_secured_put,80,0.15,0.05
-QQQ,Nasdaq ETF,covered_call,80,0.15,0.05
 KO,Coca-Cola,cash_secured_put,60,0.2,0.05
-KO,Coca-Cola,covered_call,60,0.2,0.05
 WMT,Walmat,cash_secured_put,60,0.2,0.05
-WMT,Walmat,covered_call,60,0.2,0.05
 CVX,Chevron Oil,cash_secured_put,70,0.2,0.05
-CVX,Chevron Oil,covered_call,70,0.2,0.05
 AAPL,Apple,cash_secured_put,60,0.2,0.05
-AAPL,Apple,covered_call,60,0.2,0.05
 ASHR,China 300 Index,cash_secured_put,90,0.15,0.05
-ASHR,China 300 Index,covered_call,90,0.15,0.05
 VOO,S&P 500 ETF,cash_secured_put,70,0.2,0.05
 VOO,S&P 500 ETF,covered_call,70,0.2,0.05
